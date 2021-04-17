@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Pizza from "./Pizza";
 import Header from "./components/header";
+import * as yup from "yup";
+import schema from "./components/validation/formSchema";
 import { Route, Switch } from "react-router-dom";
 import axios from "./axios";
 
@@ -43,8 +45,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios.get('fakeapi.com').then(res => setPizzas(res.data))
-  }, [])
+    axios.get("fakeapi.com").then((res) => setPizzas(res.data));
+  }, []);
 
   return (
     <div>
