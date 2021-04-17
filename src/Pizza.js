@@ -19,7 +19,7 @@ export default function Pizza(props) {
   };
   
   const onSubmit = (evt) => {
-    evt.preventDefualt();
+    evt.preventDefault()
     submit();
   };
 
