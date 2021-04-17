@@ -1,61 +1,109 @@
 import React from "react";
+import styled from "styled-components";
 
-export default function Pizza() {
-  const onChange = () => {};
-  const onSubmit = () => {};
+const StyledForm = styled.div`
+  color: red;
+  .toppings {
+    display: flex;
+    color: green;
+    flex-direction: column;
+  }
+`;
+
+export default function Pizza(props) {
+  const { values, update, submit } = props;
+
+  const onChange = (evt) => {
+    const { name, value } = evt.target;
+    update(name, value);
+  };
+  
+  const onSubmit = (evt) => {
+    evt.preventDefualt();
+    submit();
+  };
 
   return (
-    <form className="form container" onSubmit={onSubmit}>
+    <StyledForm className="form container" onSubmit={onSubmit}>
       <div className="form-group-inputs">
         {/*Name input  */}
-        <label>
-          How wants this Za?
-          <input
-            type="text"
-            name="name"
-            placeholder="za eater"
-            onChange={onChange}
-          />
-        </label>
-        {/* DropDown */}
-        <label>
-          What size Za do you want?
-          <select name="size" onChange={onChange}>
-            <option value="">--Select Size--</option>
-            <option value="big">Big</option>
-            <option value="really big">Really Big</option>
-            <option value="biggest">Biggest</option>
-          </select>
-        </label>
-        <label>
-          Peperoni
-          <input type="checkbox" name="peperoni" onChange={onChange} />
-        </label>
-        <label>
-          Sausage
-          <input type="checkbox" name="sausage" onChange={onChange} />
-        </label>
-        <label>
-          Peppers
-          <input type="checkbox" name="peppers" onChange={onChange} />
-        </label>
-        <label>
-          Everything
-          <input type="checkbox" name="everything" onChange={onChange} />
-        </label>
-        <label>
-            Special Instructions
-            <input 
-            type='text'
-            name='specialInstructors'
-            placeholder='anything we should know?'
-            onChange={onChange}
+        <div>
+          <label>
+            How wants this Za?
+            <input
+              type="text"
+              name="name"
+              placeholder="za eater"
+              onChange={onChange}
+              value={values.name}
             />
-        </label>
+          </label>
+        </div>
+        {/* DropDown */}
+        <div>
+          <label>
+            What size Za do you want?
+            <select name="size" onChange={onChange} value={values.size}>
+              <option value="">--Select Size--</option>
+              <option value="big">Big</option>
+              <option value="really big">Really Big</option>
+              <option value="biggest">Biggest</option>
+            </select>
+          </label>
+        </div>
+        <div className="toppings">
+          <label>
+            Peperoni
+            <input
+              type="checkbox"
+              name="peperoni"
+              onChange={onChange}
+              value={values.peperoni}
+            />
+          </label>
+          <label>
+            Sausage
+            <input
+              type="checkbox"
+              name="sausage"
+              onChange={onChange}
+              value={values.sausage}
+            />
+          </label>
+          <label>
+            Peppers
+            <input
+              type="checkbox"
+              name="peppers"
+              onChange={onChange}
+              value={values.peppers}
+            />
+          </label>
+          <label>
+            Everything
+            <input
+              type="checkbox"
+              name="everything"
+              onChange={onChange}
+              value={values.everything}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Special Instructions
+            <input
+              type="text"
+              name="specialInstructors"
+              placeholder="anything we should know?"
+              onChange={onChange}
+            />
+          </label>
+        </div>
       </div>
-      <div className='submit'>
-          <button>Order</button>
+      <div className="submit">
+        <button>Order</button>
       </div>
-    </form>
+    </StyledForm>
   );
 }
