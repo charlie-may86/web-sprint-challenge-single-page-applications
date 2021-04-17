@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledForm = styled.div`
+const StyledForm = styled.form`
   color: red;
   .toppings {
     display: flex;

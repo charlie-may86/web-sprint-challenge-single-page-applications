@@ -21,16 +21,16 @@ const App = () => {
     setFromValues({ ...formValues, [inputName]: inputValue });
   };
   const submitForm = () => {
-    // const newPizza = {
-    //   name: formValues.name.trim(),
-    //   size: formValues.size,
-    //   peperoni: formValues.peperoni,
-    //   sausage: formValues.sausage,
-    //   peppers: formValues.peppers,
-    //   everyting: formValues.everything,
-    // };
-    // console.log(newPizza);
-    debugger
+    const newPizza = {
+      name: formValues.name.trim(),
+      size: formValues.size,
+      peperoni: formValues.peperoni,
+      sausage: formValues.sausage,
+      peppers: formValues.peppers,
+      everyting: formValues.everything,
+    };
+    setPizzas([...pizzas], newPizza)
+    
     setFromValues(intialFormValues);
   };
 
