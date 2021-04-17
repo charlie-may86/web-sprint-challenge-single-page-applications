@@ -23,6 +23,10 @@ const StyledHome = styled.div`
     background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
     background-color: #6c7c7c;
   }
+  
+  text-align: center;
+
+  padding-top: 20px;
 `;
 
 export default function Home() {
@@ -33,8 +37,7 @@ export default function Home() {
 
   return (
     <StyledHome>
-      <h1>Lambda Eats</h1>
-      <p>This a homepage test</p>
+      <h2>Your favorite food, delivered wile coding !</h2>
       <button onClick={routeToPizza} className="pizza-button">
         Get the Za!
       </button>
