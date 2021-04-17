@@ -1,15 +1,14 @@
 import React from "react";
-import Home from "./Home";
+import Home from "./components/Home";
 import Pizza from "./Pizza";
+import Header from './components/header'
 import { Link, Route, Switch } from "react-router-dom";
 
 const App = () => {
   return (
     <div>
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/pizza">Order Pizza</Link>
-      </div>
+      <Header />
+  
       <Switch>
         <Route path="/pizza">
           <Pizza />
