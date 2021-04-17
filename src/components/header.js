@@ -35,7 +35,7 @@ const StyledHeader = styled.header`
   align-items: center;
 `;
 
-export default function Header({}) {
+export default function Header() {
   const history = useHistory();
   const routeToPizza = () => {
     history.push("./pizza");

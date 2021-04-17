@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import Pizza from "./Pizza";
 import Header from "./components/header";
-import { Link, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import axios from "./axios";
 
 const intialFormValues = {
   name: "",
@@ -11,6 +12,7 @@ const intialFormValues = {
   sausage: false,
   peppers: false,
   everything: false,
+  specialInstructions: "",
 };
 
 const App = () => {
@@ -29,10 +31,20 @@ const App = () => {
       peppers: formValues.peppers,
       everyting: formValues.everything,
     };
-    setPizzas([...pizzas], newPizza)
-    
-    setFromValues(intialFormValues);
+    axios
+      .post("fakeapi.com", newPizza)
+      .then((res) => {
+        setPizzas([...pizzas, newPizza]);
+        setFromValues(intialFormValues);
+      })
+      .catch((err) => {
+        debugger;
+      });
   };
+
+  useEffect(() => {
+    axios.get('fakeapi.com').then(res => setPizzas(res.data))
+  }, [])
 
   return (
     <div>

@@ -33,7 +33,7 @@ export default function Pizza(props) {
             <input
               type="text"
               name="name"
-              placeholder="za eater"
+              placeholder="name"
               onChange={onChange}
               value={values.name}
             />
@@ -94,7 +94,7 @@ export default function Pizza(props) {
             Special Instructions
             <input
               type="text"
-              name="specialInstructors"
+              name="specialInstructions"
               placeholder="anything we should know?"
               onChange={onChange}
             />
