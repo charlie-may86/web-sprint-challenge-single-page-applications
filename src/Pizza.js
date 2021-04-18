@@ -11,7 +11,7 @@ const StyledForm = styled.form`
 `;
 
 export default function Pizza(props) {
-  const { values, update, submit } = props;
+  const { values, update, submit, disabled } = props;
 
   const onChange = (evt) => {
     const { name, value } = evt.target;
@@ -102,7 +102,7 @@ export default function Pizza(props) {
         </div>
       </div>
       <div className="submit">
-        <button className='orderButton'>Order</button>
+        <button className='orderButton' disabled={disabled}>Order</button>
       </div>
     </StyledForm>
   );
