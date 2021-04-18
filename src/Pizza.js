@@ -102,7 +102,7 @@ export default function Pizza(props) {
         </div>
       </div>
       <div className="submit">
-        <button>Order</button>
+        <button className='orderButton'>Order</button>
       </div>
     </StyledForm>
   );
